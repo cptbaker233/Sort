@@ -14,11 +14,6 @@ public class InsertSort {
         System.out.println(Arrays.toString(arr));
         arr = insert(arr);
         System.out.println(Arrays.toString(arr));
-        /*ArrayList<Integer> al = new ArrayList<Integer>();
-        al.add(2);
-        al.add(3);
-        in(al, 10);
-        System.out.println(al);*/
     }
     
     //利用插入方法,进行排序
