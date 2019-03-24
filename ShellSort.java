@@ -2,7 +2,6 @@ package com.igeek.希尔排序法;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
-
 import com.igeek.插入排序法.*;
 
 public class ShellSort {
@@ -25,9 +24,7 @@ public class ShellSort {
             for (int group = 0; group < gap; group ++) {
                 System.out.println("第"+ (group + 1) + "组插入排序后:");
                 ArrayList<Integer> al = new ArrayList<Integer>();
-                al.add((arr[group] <= arr[group + gap] ? arr[group] : arr[group + gap]));
-                al.add((arr[group] >= arr[group + gap] ? arr[group] : arr[group + gap]));
-                for (int j = group + 2 * gap; j < arr.length; j += gap) {
+                for (int j = group; j < arr.length; j += gap) {
                     InsertSort.in(al, arr[j]);
                 }
                 for (int j = group,i = 0; j < arr.length; j += gap,i ++) {
