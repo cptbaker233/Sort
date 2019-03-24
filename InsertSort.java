@@ -19,10 +19,8 @@ public class InsertSort {
     //利用插入方法,进行排序
     public static int[] insert(int[] arr) {
         ArrayList<Integer> al = new ArrayList<Integer>();
-        al.add((arr[0] <= arr[1] ? arr[0] : arr[1]));
-        al.add((arr[0] >= arr[1] ? arr[0] : arr[1]));
         //System.out.println(al);
-        for (int i = 2; i < arr.length; i ++) {
+        for (int i = 0; i < arr.length; i ++) {
             in(al, arr[i]);
         }
         for (int i = 0; i < arr.length; i ++) {
@@ -31,17 +29,21 @@ public class InsertSort {
         return arr;
     }
     
-    //插入有序数组(利用二分发查找位置)
+    //将目标插入有序或者空集合(利用二分发查找位置)
     public static ArrayList<Integer> in(ArrayList<Integer> al, int a){
-        if (a >= al.get(al.size() - 1)) {
+        if (al.size() == 0) {       //若目标是空数组,直接插入
             al.add(a);
             return al;
         }
-        if (a <= al.get(0)) {
+        if (a >= al.get(al.size() - 1)) {  //目标大于全部值,直接加在最右
+            al.add(a);
+            return al;
+        }
+        if (a <= al.get(0)) {  //目标小于全部值,直接加在最左输出
             al.add(0, a);
             return al;
         }
-        int start = 0;
+        int start = 0;     //目标介于两头之间的情况,用二分查找插入
         int end = al.size() - 1;
         int key = (start + end) - 1;
         for (key = (start + end) / 2; start < end - 1; key = (start + end) / 2) {
