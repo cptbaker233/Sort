@@ -30,7 +30,7 @@ public class MergeSort {
         }
         ArrayList<Integer> al1 = new ArrayList<Integer>();
         ArrayList<Integer> al2 = new ArrayList<Integer>();
-        for (int i = 0; i < al.size(); i ++) {
+        for (int i = 0; i < al.size(); i ++) {  //将目标集合平均分成两组
             if (i < al.size() / 2) {
                 al1.add(al.get(i));
             } else {
@@ -48,7 +48,7 @@ public class MergeSort {
     public static ArrayList<Integer> merg(ArrayList<Integer> al1, ArrayList<Integer> al2) {
         ArrayList<Integer> result = new ArrayList<Integer>();
         while (al1.size() != 0 || al2.size() != 0) {
-            if (al1.size() == 0 ) {                 //实际上归并排序不会出现的情况(如果其中一组没有元素,则遍历直接把另一组依次加上)
+            if (al1.size() == 0 ) {                 //实际上归并排序不会出现的情况,归并一般平均分组(如果其中一组没有元素,则遍历直接把另一组依次加上)
                 while (al2.size() != 0 ) {          //这里是为了提升本方法的适用场景
                     result.add(al2.remove(0));
                 }
