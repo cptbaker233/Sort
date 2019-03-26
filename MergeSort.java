@@ -23,7 +23,7 @@ public class MergeSort {
         System.out.println("排序后:\n" + Arrays.toString(arr));
     }
   
-    //二向归并排序算法
+    //归并排序算法
     public static ArrayList<Integer> merge(ArrayList<Integer> al) {
         if (al.size() == 1) {       //递归出口,如果分无可分则不继续分,直接返回集合
             return al;
@@ -36,7 +36,6 @@ public class MergeSort {
             } else {
                 al2.add(al.get(i));
             }
-            
         }
         al1 = merge(al1);           //利用递归使第一组有序
         al2 = merge(al2);           //利用递推使第二组有序
@@ -48,8 +47,8 @@ public class MergeSort {
     public static ArrayList<Integer> merg(ArrayList<Integer> al1, ArrayList<Integer> al2) {
         ArrayList<Integer> result = new ArrayList<Integer>();
         while (al1.size() != 0 || al2.size() != 0) {
-            if (al1.size() == 0 ) {                 //实际上归并排序不会出现的情况,归并一般平均分组(如果其中一组没有元素,则遍历直接把另一组依次加上)
-                while (al2.size() != 0 ) {          //这里是为了提升本方法的适用场景
+            if (al1.size() == 0 ) {                 //实际上归并排序不会出现的情况,归并一般平均分组
+                while (al2.size() != 0 ) {          //这里是为了提升本方法的适用场景,使不平均分组的情况也适用
                     result.add(al2.remove(0));
                 }
                 return result;
@@ -60,7 +59,7 @@ public class MergeSort {
                 }
                 return result;
             }
-            if (al1.get(0) <= al2.get(0)) {     //比较两组第一个数的大小,把小值加到结果集合
+            if (al1.get(0) <= al2.get(0)) {     //比较两组第一个数的大小,把小值加到结果result集合
                 result.add(al1.remove(0));
             } else {
                 result.add(al2.remove(0));
