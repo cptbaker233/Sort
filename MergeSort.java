@@ -12,12 +12,12 @@ public class MergeSort {
             arr[i] = r.nextInt(90) + 10;
         }
         System.out.println("排序前:\n" + Arrays.toString(arr));
-        ArrayList<Integer> al = new ArrayList<Integer>();
+        ArrayList<Integer> al = new ArrayList<Integer>();   //为了方便操作,将数组存入集合
         for (int i = 0; i < arr.length; i ++) {
             al.add(arr[i]);
         }
         al = merge(al);
-        for (int i = 0; i < arr.length; i ++) {
+        for (int i = 0; i < arr.length; i ++) {             //排序完成后把数列重新存进数组输出
             arr[i] = al.get(i);
         }
         System.out.println("排序后:\n" + Arrays.toString(arr));
@@ -30,7 +30,7 @@ public class MergeSort {
         }
         ArrayList<Integer> al1 = new ArrayList<Integer>();
         ArrayList<Integer> al2 = new ArrayList<Integer>();
-        for (int i = 0; i < al.size(); i ++) {  //将目标集合平均分成两组
+        for (int i = 0; i < al.size(); i ++) {              //将目标集合平均分成两组
             if (i < al.size() / 2) {
                 al1.add(al.get(i));
             } else {
@@ -38,7 +38,9 @@ public class MergeSort {
             }
         }
         al1 = merge(al1);           //利用递归使第一组有序
+        System.out.println("第一组" + al1);
         al2 = merge(al2);           //利用递推使第二组有序
+        System.out.println("第二组" + al2);
         al = merg(al1, al2);        //输入有序的两个集合,使合并后的集合有序
         System.out.println("合并:" + al);
         return al;
