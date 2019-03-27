@@ -7,8 +7,8 @@ import java.util.Random;
 public class InsertSort {
     public static void main(String[] args) {
         Random r = new Random();
-        int[] arr = new int[10];
-        for (int i = 0; i < 10; i ++) {
+        int[] arr = new int[30];
+        for (int i = 0; i < arr.length; i ++) {
             arr[i] = r.nextInt(100) + 1;
         }
         System.out.println(Arrays.toString(arr));

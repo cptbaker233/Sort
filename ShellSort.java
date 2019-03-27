@@ -7,9 +7,9 @@ import com.igeek.插入排序法.*;
 public class ShellSort {
     public static void main(String[] args) {
         Random r = new Random();
-        int[] arr = new int[10];
-        for (int i = 0; i < 10; i ++) {
-            arr[i] = r.nextInt(10);
+        int[] arr = new int[30];
+        for (int i = 0; i < arr.length; i ++) {
+            arr[i] = r.nextInt(90) + 10;
         }
         arr = shell(arr);
     }
@@ -24,12 +24,12 @@ public class ShellSort {
                 System.out.println("第"+ (group + 1) + "组插入排序后:");
                 ArrayList<Integer> al = new ArrayList<Integer>();
                 for (int j = group; j < arr.length; j += gap) {     //每一组的成员之间间距是gap
-                    InsertSort.in(al, arr[j]);
+                    InsertSort.in(al, arr[j]);                      //组内插入排序
                 }
                 for (int j = group,i = 0; j < arr.length; j += gap,i ++) { //将集合的元素存入temp1
                     temp[j] = al.get(i);
                 }
-                System.out.println("al :" + al);
+                System.out.println(al);
                 System.out.println("将第" + (group + 1) + "组对号入座并入数组后:\n" + Arrays.toString(temp));
             }
             arr = temp;

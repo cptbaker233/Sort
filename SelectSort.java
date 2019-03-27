@@ -7,7 +7,7 @@ public class SelectSort {
     public static void main(String[] args) {
         Random r = new Random();
         ArrayList<Integer> al = new ArrayList<Integer>();
-        for (int i = 1; i <= 5; i ++) {
+        for (int i = 1; i <= 30; i ++) {
             al.add(r.nextInt(100) + 1);
         }
         System.out.println(al);
@@ -24,8 +24,8 @@ public class SelectSort {
                 index = (min <= al.get(j)) ? index : j;
                 min = (min <= al.get(j)) ? min : al.get(j);
             }
-            al.remove(index);
-            al.add(min);
+            al.remove(index);                  //遍历数组把最小值的元素去掉
+            al.add(min);                       //在数组末尾加上提取到的最小值
             System.out.println(al);
         }
     }

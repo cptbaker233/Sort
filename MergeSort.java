@@ -7,8 +7,8 @@ import java.util.Random;
 public class MergeSort {
     public static void main(String[] args) {
         Random r = new Random();
-        int[] arr = new int[10];
-        for (int i = 0; i < 10; i ++) {
+        int[] arr = new int[30];
+        for (int i = 0; i < arr.length; i ++) {
             arr[i] = r.nextInt(90) + 10;
         }
         System.out.println("排序前:\n" + Arrays.toString(arr));
@@ -38,9 +38,9 @@ public class MergeSort {
             }
         }
         al1 = merge(al1);           //利用递归使第一组有序
-        System.out.println("第一组" + al1);
+        System.out.println("A组" + al1);
         al2 = merge(al2);           //利用递推使第二组有序
-        System.out.println("第二组" + al2);
+        System.out.println("B组" + al2);
         al = merg(al1, al2);        //输入有序的两个集合,使合并后的集合有序
         System.out.println("合并:" + al);
         return al;
