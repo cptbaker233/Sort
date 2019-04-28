@@ -14,12 +14,12 @@ import java.util.Random;
 public class QuickSort {
     public static void main(String[] args) {
         Random r = new Random();
-        int[] arr = new int[10];
+        int[] arr = new int[100000];
         for (int i = 0; i < arr.length; i ++) {
-            arr[i] = r.nextInt(100);
+            arr[i] = r.nextInt(100000);
         }
-        //int[] arr = {0,6,10,5,5,5,10};
         System.out.println(Arrays.toString(arr));
+        //int[] arr = {0,6,10,5,5,5,10};
         long start = System.currentTimeMillis();
         arr = quickSort(arr);
         long time = System.currentTimeMillis() - start;
@@ -72,13 +72,8 @@ public class QuickSort {
         if (key == end) {
             return quickSort(arr, start, key - 1);
         }
-        System.out.println(Arrays.toString(arr));
         quickSort(arr, start, key - 1);
-        System.out.println("×ó±ßÅÅÐòºó: ");
-        System.out.println(Arrays.toString(arr));
         quickSort(arr, key + 1, end);
-        System.out.println("ÓÒ±ßÅÅÐòºó: ");
-        System.out.println(Arrays.toString(arr));
         return arr;
     }
 }
